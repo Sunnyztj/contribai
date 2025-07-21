@@ -6,7 +6,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 z-10">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 z-10">
       <div className="text-center max-w-4xl mx-auto">
         {/* Logo */}
         <div className="mb-8">
