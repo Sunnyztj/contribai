@@ -1,155 +1,122 @@
-import React from 'react';
+import React from "react";
+import { FaGlobeAmericas, FaCheckCircle, FaRecycle, FaBalanceScale, FaUserShield, FaHandshake, FaRobot, FaBookOpen, FaVideo, FaQuestionCircle, FaShieldAlt } from "react-icons/fa";
 
-const steps = [
-  {
-    title: 'Contribute',
-    description: 'Educators, experts, and users upload educational content (articles, videos, courses, datasets).',
-    icon: (
-      <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-teal-400 shadow-lg">
-        {/* Book/Upload Icon */}
-        <svg className="w-9 h-9 text-white" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 16V4m0 0l-4 4m4-4l4 4" />
-          <rect x="4" y="16" width="16" height="4" rx="2" className="fill-white/10" />
-        </svg>
-      </span>
-    ),
-    gradient: 'from-blue-700/80 to-teal-600/80',
-    shadow: 'shadow-blue-500/30',
-  },
-  {
-    title: 'AI Quality Review',
-    description: 'AI algorithms and community voting assess and score the quality of each contribution.',
-    icon: (
-      <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 shadow-lg">
-        {/* AI/Brain Icon */}
-        <svg className="w-9 h-9 text-white" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12a3 3 0 016 0m-3-7v2m0 10v2m7-7h-2M5 12H3m15.07 4.93l-1.41-1.41M6.34 6.34l-1.41-1.41m12.02 0l-1.41 1.41M6.34 17.66l-1.41 1.41" />
-        </svg>
-      </span>
-    ),
-    gradient: 'from-teal-500/80 to-blue-700/80',
-    shadow: 'shadow-teal-400/30',
-  },
-  {
-    title: 'Reward',
-    description: 'High-quality contributors and reviewers are rewarded with CTAI tokens on the Solana blockchain.',
-    icon: (
-      <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 shadow-lg">
-        {/* Reward/Coin Icon */}
-        <svg className="w-9 h-9 text-white" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="7" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l2 2" />
-        </svg>
-      </span>
-    ),
-    gradient: 'from-yellow-400/80 to-orange-500/80',
-    shadow: 'shadow-orange-400/30',
-  },
-  {
-    title: 'Knowledge Sharing',
-    description: 'All valuable content is transparently recorded and available to the global community.',
-    icon: (
-      <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-teal-300 shadow-lg">
-        {/* Globe/Share Icon */}
-        <svg className="w-9 h-9 text-white" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="8" />
-          <path strokeLinecap="round" strokeLinejoin="round" d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20" />
-        </svg>
-      </span>
-    ),
-    gradient: 'from-blue-400/80 to-teal-300/80',
-    shadow: 'shadow-teal-300/30',
-  },
-];
+const WhitepaperVisionSection = () => (
+  <section className="max-w-3xl mx-auto my-16 px-4 md:px-0 fadein-section">
+    {/* Vision */}
+    <div className="mb-12">
+      <h2 className="flex items-center text-2xl md:text-3xl font-bold mb-4 gradient-text">
+        <span className="mr-2 text-3xl md:text-4xl"><FaGlobeAmericas className="inline-block text-ai-blue" /></span>
+        Vision – Beyond Crypto
+      </h2>
+      <div className="bg-gradient-to-br from-ai-dark/70 to-ai-darker/80 rounded-2xl p-6 md:p-8 border border-ai-blue/20 shadow-lg">
+        <p className="text-lg md:text-xl text-white font-semibold mb-2">
+          ContribAI is not just another blockchain project—it’s a <span className="gradient-text font-bold">borderless knowledge platform</span> dedicated to empowering children and young learners worldwide with equal access to high-quality education.
+        </p>
+        <p className="text-[#b0b8c1] mt-2">
+          Blockchain here is strictly used as a transparent, low-barrier payment and tracking infrastructure, never for speculation or manipulation.
+        </p>
+      </div>
+    </div>
 
-const Arrow = ({ direction = 'right', className = '' }) => (
-  <svg
-    className={`w-10 h-10 text-ai-blue/60 ${className}`}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2.2}
-    viewBox="0 0 24 24"
-  >
-    {direction === 'right' ? (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-4-4 4 4-4 4" />
-    ) : (
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v14m-4-4 4 4 4-4" />
-    )}
-  </svg>
-);
-
-const HowItWorks = () => {
-  return (
-    <section id="howitworks" className="min-h-screen bg-gradient-to-br from-ai-dark to-ai-darker text-white font-sans pt-28 pb-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 gradient-text">How ContribAI Works</h1>
-          <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-medium">A Decentralized Knowledge Sharing Platform Powered by Blockchain & AI</h2>
+    {/* Real Impact & Trust */}
+    <div className="mb-12">
+      <h2 className="flex items-center text-2xl md:text-3xl font-bold mb-4 gradient-text">
+        <span className="mr-2 text-2xl md:text-3xl"><FaCheckCircle className="inline-block text-ai-teal" /></span>
+        Real Impact & Trust
+      </h2>
+      <div className="bg-gradient-to-br from-ai-dark/70 to-ai-darker/80 rounded-2xl p-6 md:p-8 border border-ai-blue/20 shadow-lg space-y-5">
+        <div className="flex items-start">
+          <span className="mr-3 mt-1 text-ai-blue"><FaBalanceScale className="w-5 h-5" /></span>
+          <div>
+            <span className="font-bold text-white">No Speculation Policy:</span>
+            <p className="text-[#b0b8c1]">
+              We strictly reject price manipulation and speculative trading. The ContribAI token (CTAI) is exclusively for rewarding educational contributions and promoting learning engagement.
+            </p>
+          </div>
         </div>
-
-        {/* Desktop: Horizontal flow with arrows */}
-        <div className="hidden md:flex justify-between items-center gap-4 mb-16">
-          {steps.map((step, idx) => (
-            <React.Fragment key={step.title}>
-              <div
-                className={`group flex flex-col items-center flex-1 bg-gradient-to-br ${step.gradient} ${step.shadow} rounded-2xl p-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-ai-blue/40 cursor-pointer relative`}
-              >
-                <div className="mb-4 group-hover:scale-110 group-focus:scale-110 transition-transform duration-300">
-                  {step.icon}
-                </div>
-                <h3 className="text-lg md:text-xl font-bold mb-2 text-white text-center tracking-wide drop-shadow-lg">
-                  {step.title}
-                </h3>
-                <p className="text-gray-100 text-center text-base leading-relaxed opacity-80 font-normal">
-                  {step.description}
-                </p>
-                {/* Animated highlight ring */}
-                <span className="absolute -inset-1 rounded-2xl pointer-events-none group-hover:shadow-[0_0_0_4px_rgba(14,165,233,0.25)] group-focus:shadow-[0_0_0_4px_rgba(14,165,233,0.25)] transition-all duration-300" />
-              </div>
-              {idx < steps.length - 1 && (
-                <Arrow direction="right" className="mx-2 shrink-0" />
-              )}
-            </React.Fragment>
-          ))}
+        <div className="flex items-start">
+          <span className="mr-3 mt-1 text-ai-blue"><FaUserShield className="w-5 h-5" /></span>
+          <div>
+            <span className="font-bold text-white">Complete Transparency & Auditability:</span>
+            <p className="text-[#b0b8c1]">
+              All token issuances, reward distributions, and governance decisions are publicly traceable on-chain. Quarterly transparency reports are published for community verification.
+            </p>
+          </div>
         </div>
-
-        {/* Mobile: Vertical flow with arrows */}
-        <div className="md:hidden flex flex-col items-center gap-8 mb-10">
-          {steps.map((step, idx) => (
-            <React.Fragment key={step.title}>
-              <div
-                className={`group w-full flex flex-col items-center bg-gradient-to-br ${step.gradient} ${step.shadow} rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-ai-blue/40 cursor-pointer relative`}
-              >
-                <div className="mb-3 group-hover:scale-110 group-focus:scale-110 transition-transform duration-300">
-                  {step.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-1 text-white text-center tracking-wide drop-shadow-lg">
-                  {step.title}
-                </h3>
-                <p className="text-gray-100 text-center text-base leading-relaxed opacity-80 font-normal">
-                  {step.description}
-                </p>
-                <span className="absolute -inset-1 rounded-2xl pointer-events-none group-hover:shadow-[0_0_0_4px_rgba(14,165,233,0.25)] group-focus:shadow-[0_0_0_4px_rgba(14,165,233,0.25)] transition-all duration-300" />
-              </div>
-              {idx < steps.length - 1 && (
-                <Arrow direction="down" className="my-2" />
-              )}
-            </React.Fragment>
-          ))}
+        <div className="flex items-start">
+          <span className="mr-3 mt-1 text-ai-blue"><FaShieldAlt className="w-5 h-5" /></span>
+          <div>
+            <span className="font-bold text-white">Compliance & Ethics:</span>
+            <p className="text-[#b0b8c1]">
+              ContribAI fully complies with AML/KYC regulations where required, ensuring no misuse or illicit activities can take place through the platform.
+            </p>
+          </div>
         </div>
-
-        {/* CTA */}
-        <div className="flex justify-center mt-10">
-          <a
-            href="/#hero"
-            className="px-8 py-4 bg-gradient-to-r from-ai-blue to-ai-teal text-white font-semibold rounded-full text-lg shadow hover:from-ai-teal hover:to-ai-blue transition-all duration-300 transform hover:scale-105"
-          >
-            Start Contributing
-          </a>
+        <div className="flex items-start">
+          <span className="mr-3 mt-1 text-ai-blue"><FaHandshake className="w-5 h-5" /></span>
+          <div>
+            <span className="font-bold text-white">Real-World Partnerships:</span>
+            <p className="text-[#b0b8c1]">
+              Collaborations with reputable NGOs and education-focused organizations demonstrate real-world impact and ensure legitimacy.
+            </p>
+          </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
 
-export default HowItWorks; 
+    {/* Sustainable Token Economy */}
+    <div className="mb-12">
+      <h2 className="flex items-center text-2xl md:text-3xl font-bold mb-4 gradient-text">
+        <span className="mr-2 text-2xl md:text-3xl"><FaRecycle className="inline-block text-ai-orange" /></span>
+        Sustainable Token Economy
+      </h2>
+      <div className="bg-gradient-to-br from-ai-dark/70 to-ai-darker/80 rounded-2xl p-6 md:p-8 border border-ai-blue/20 shadow-lg space-y-5">
+        <div className="flex items-start">
+          <span className="mr-3 mt-1 text-ai-orange"><FaRecycle className="w-5 h-5" /></span>
+          <div>
+            <span className="font-bold text-white">Continuous Reward Loop:</span>
+            <p className="text-[#b0b8c1]">
+              Tokens are rewarded for contributions, partially recycled back into the community fund, and utilized effectively for sustained token circulation.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start">
+          <span className="mr-3 mt-1 text-ai-orange"><FaRobot className="w-5 h-5" /></span>
+          <div>
+            <span className="font-bold text-white">AI-Enhanced Learning & Quality Control:</span>
+            <p className="text-[#b0b8c1]">
+              AI technology is integrated as a personalized learning assistant, quality reviewer, and content curator, ensuring educational effectiveness.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start">
+          <span className="mr-3 mt-1 text-ai-orange"><FaBookOpen className="w-5 h-5" /></span>
+          <div>
+            <span className="font-bold text-white">Real Educational Value:</span>
+            <ul className="list-disc pl-5 text-[#b0b8c1]">
+              <li className="flex items-center"><FaQuestionCircle className="w-4 h-4 mr-2 text-ai-blue" /> Q&amp;A community support</li>
+              <li className="flex items-center"><FaRobot className="w-4 h-4 mr-2 text-ai-teal" /> Intelligent practice quizzes</li>
+              <li className="flex items-center"><FaVideo className="w-4 h-4 mr-2 text-ai-orange" /> Educational video resources</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Compliance Declaration */}
+    <div className="mb-8">
+      <h2 className="flex items-center text-2xl md:text-3xl font-bold mb-4 gradient-text">
+        <span className="mr-2 text-2xl md:text-3xl"><FaUserShield className="inline-block text-ai-blue" /></span>
+        Clear Compliance Declaration
+      </h2>
+      <blockquote className="bg-gradient-to-br from-ai-dark/80 to-ai-darker/90 border-l-4 border-ai-blue/60 rounded-2xl p-6 md:p-8 text-base md:text-lg text-[#b0b8c1] shadow-lg">
+        <span className="italic">
+          "We understand the concerns around blockchain misuse. ContribAI exists solely to empower global education. We utilize blockchain's transparency to reinforce trust and fairness. No speculative or illicit activities are permitted on this platform."
+        </span>
+      </blockquote>
+    </div>
+  </section>
+);
+
+export default WhitepaperVisionSection; 
