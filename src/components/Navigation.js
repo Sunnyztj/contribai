@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const NAV_ITEMS = [
-  { label: 'Home', href: '/#hero' },
-  { label: 'About', href: '/#about' },
-  { label: 'How it Works', href: '/#how-it-works' },
-  { label: 'Tokenomics', href: '/#tokenomics' },
+  { label: 'Home', href: '/#hero', anchor: 'hero' },
+  { label: 'About', href: '/#about', anchor: 'about' },
+  { label: 'How it Works', href: '/#howitworks', anchor: 'howitworks' },
+  { label: 'Tokenomics', href: '/#tokenomics', anchor: 'tokenomics' },
 ];
 
 const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
-  // Helper to close menu on navigation
-  const handleNavClick = (href) => {
+  // Smooth scroll to anchor, navigating home if needed
+  const handleNavClick = (e, href, anchor) => {
+    e.preventDefault();
     setMenuOpen(false);
-    // If already on home, scroll to anchor
-    if (location.pathname === '/' && href.startsWith('/#')) {
-      const anchor = href.split('#')[1];
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation, then scroll
       setTimeout(() => {
         const el = document.getElementById(anchor);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 0);
+      }, 100);
+    } else {
+      const el = document.getElementById(anchor);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -50,7 +57,7 @@ const Navigation = () => {
                 key={item.label}
                 href={item.href}
                 className="text-white/90 hover:text-teal-400 focus:text-blue-400 transition-colors duration-150 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                onClick={() => handleNavClick(item.href)}
+                onClick={e => handleNavClick(e, item.href, item.anchor)}
               >
                 {item.label}
               </a>
@@ -127,7 +134,7 @@ const Navigation = () => {
                 key={item.label}
                 href={item.href}
                 className="text-white/90 text-lg hover:text-teal-400 focus:text-blue-400 transition-colors duration-150 px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                onClick={() => handleNavClick(item.href)}
+                onClick={e => handleNavClick(e, item.href, item.anchor)}
               >
                 {item.label}
               </a>
