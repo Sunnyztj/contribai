@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { FaChevronDown, FaChevronUp, FaLock, FaInfinity, FaLeaf } from 'react-icons/fa';
 
 const Tokenomics = () => {
   const tokenDetails = [
@@ -91,6 +92,9 @@ const Tokenomics = () => {
             </div>
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <TokenomicsFAQ />
       </div>
     </section>
   );
@@ -208,6 +212,62 @@ function MintAddressCard() {
         </a>
       </div>
     </div>
+  );
+}
+
+const faqs = [
+  {
+    q: "Why does ContribAI use a fixed supply token model?",
+    a: "ContribAI uses a fixed-supply token model (18,446,744,073 CTAI) to ensure scarcity and long-term value stability for all holders and contributors.",
+    icon: <FaLock className="text-ai-blue w-5 h-5 mr-2" />
+  },
+  {
+    q: "Will a fixed token supply limit platform growth or incentives?",
+    a: "No. The platform is designed for sustainability even with a fixed total supply, using mechanisms like balanced distribution, token recycling, diverse application scenarios, and dynamic DAO governance.",
+    icon: <FaInfinity className="text-ai-teal w-5 h-5 mr-2" />
+  },
+  {
+    q: "How does ContribAI ensure long-term sustainability with a fixed supply?",
+    a: "With well-designed distribution, recycling mechanisms, diversified utility, and dynamic governance, the fixed-supply model encourages sustainable growth, healthy incentives, and a thriving education ecosystem for the long term.",
+    icon: <FaLeaf className="text-ai-orange w-5 h-5 mr-2" />
+  }
+];
+
+function TokenomicsFAQ() {
+  const [openIdx, setOpenIdx] = useState(null);
+  return (
+    <section className="max-w-2xl mx-auto mt-16 mb-20 px-4">
+      <h2 className="text-2xl md:text-3xl font-bold mb-8 gradient-text">Tokenomics & Ecosystem Sustainability FAQ</h2>
+      <div className="space-y-4">
+        {faqs.map((faq, idx) => (
+          <div
+            key={idx}
+            className="bg-gradient-to-br from-ai-dark/60 to-ai-darker/80 border border-ai-blue/20 rounded-2xl shadow-lg"
+          >
+            <button
+              className="w-full flex items-center justify-between px-6 py-4 text-left focus:outline-none"
+              onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
+              aria-expanded={openIdx === idx}
+            >
+              <span className="flex items-center text-base md:text-lg font-semibold text-white">
+                {faq.icon}
+                {faq.q}
+              </span>
+              {openIdx === idx ? (
+                <FaChevronUp className="text-ai-blue w-5 h-5" />
+              ) : (
+                <FaChevronDown className="text-ai-blue w-5 h-5" />
+              )}
+            </button>
+            {openIdx === idx && (
+              <div className="px-6 pb-5 text-[#b0b8c1] text-base md:text-lg">
+                {faq.a}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 

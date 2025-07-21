@@ -203,6 +203,22 @@ const WhitepaperPage = () => {
             Join us in building a fair, open, and rewarding global education ecosystem powered by blockchain and AI.
           </div>
         </Section>
+
+        {/* FAQ Section */}
+        <section className="mb-8 md:mb-16 px-4 md:px-0 max-w-3xl mx-auto fadein-section">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 gradient-text" style={{ scrollMarginTop: 96 }}>
+            FAQ
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg md:text-xl font-semibold mb-3 text-white">Will a fixed token supply limit platform growth?</h3>
+              <blockquote className="bg-gradient-to-br from-ai-dark/70 to-ai-darker/80 border-l-4 border-ai-blue/60 rounded-2xl p-6 md:p-8 text-base md:text-lg text-[#b0b8c1] shadow-lg">
+                <span className="block font-bold text-white mb-2">No.</span>
+                With balanced token release, recycling mechanisms, diverse real-world use cases, and dynamic DAO governance, ContribAI ensures sustainable incentives and long-term ecosystem prosperity—even with a fixed total supply. Tokens for community rewards are released gradually over time, and transaction fees are partially burned or returned to the rewards pool to maintain healthy circulation. The DAO can also adjust incentive policies as the community grows.
+              </blockquote>
+            </div>
+          </div>
+        </section>
       </main>
       {/* Fade-in animation styles */}
       <style>{`
