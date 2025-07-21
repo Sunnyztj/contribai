@@ -40,7 +40,7 @@ const Navigation = () => {
                 className="w-full h-full object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-200"
               />
             </div>
-            <span className="text-xl font-bold text-white tracking-tight">ContribAI</span>
+            <span className="text-xl font-bold tracking-tight gradient-text">ContribAI</span>
           </a>
 
           {/* Desktop Menu */}
@@ -109,7 +109,7 @@ const Navigation = () => {
                   className="w-full h-full object-contain drop-shadow-lg"
                 />
               </div>
-              <span className="text-xl font-bold text-white">ContribAI</span>
+              <span className="text-xl font-bold gradient-text">ContribAI</span>
             </span>
             <button
               className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
